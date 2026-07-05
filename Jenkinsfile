@@ -19,14 +19,18 @@ pipeline {
                 . venv/bin/activate
                 pip install --upgrade pip
                 pip install -r requirements.txt
-        '''
+                '''
             }
         }
 
         stage('Run Tests') {
             steps {
                 echo "Running tests..."    
-                sh 'python3 -m pytest'
+                sh '''
+                . venv/bin/activate
+                pytest test_app.py
+                '''
+'
             }
         }
 
