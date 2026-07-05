@@ -14,21 +14,21 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo " Installing dependencies..."
-                sh 'pip install -r requirements.txt'
+                sh 'python3 -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
                 echo "Running tests..."    
-                sh 'pytest'
+                sh 'python3 -m pytest'
             }
         }
 
         stage('Build') {
             steps {
                 echo "Building the application..."
-                sh 'python app.py'
+                sh 'python3 app.py'
             }
         }
     }
